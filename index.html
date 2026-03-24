@@ -1,872 +1,654 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yaron Klein | Product, Strategy, and Venture</title>
-    <meta name="description" content="Yaron Klein is a Cornell MBA and product leader with experience across AI, cybersecurity, strategy, and venture investing.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #ffffff;
-            --bg-section: #f4f7fb;
-            --bg-card: #ffffff;
-            --bg-card-hover: #f0f4fa;
-            --text: #1a2332;
-            --text-secondary: #4a5568;
-            --text-muted: #8896a6;
-            --accent: #2563eb;
-            --accent-soft: rgba(37, 99, 235, 0.08);
-            --accent-mid: rgba(37, 99, 235, 0.18);
-            --green: #0d9488;
-            --green-soft: rgba(13, 148, 136, 0.08);
-            --amber: #1e6bb8;
-            --amber-soft: rgba(30, 107, 184, 0.08);
-            --cyan: #3b82f6;
-            --cyan-soft: rgba(59, 130, 246, 0.08);
-            --rose: #6366f1;
-            --rose-soft: rgba(99, 102, 241, 0.08);
-            --border: rgba(30, 58, 95, 0.1);
-            --border-hover: rgba(30, 58, 95, 0.2);
-            --sans: 'Inter', -apple-system, sans-serif;
-            --serif: 'Lora', Georgia, serif;
-            --mono: 'JetBrains Mono', monospace;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yaron Klein | Product, Strategy, and Venture</title>
+  <meta name="description" content="Yaron Klein is a Cornell MBA and product leader with experience across AI, cybersecurity, strategy, and venture investing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f5f7fb;
+      --card: #ffffff;
+      --text: #182230;
+      --muted: #5b6678;
+      --border: rgba(24, 34, 48, 0.1);
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --shadow: 0 18px 40px rgba(19, 31, 51, 0.06);
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --serif: 'Lora', Georgia, serif;
+    }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--sans);
-            font-size: 16px;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.88; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
-        ::selection { background: var(--accent); color: #ffffff; }
-        a { color: var(--accent); text-decoration: none; transition: all 0.2s; }
-        a:hover { opacity: 0.85; }
-        .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+    .nav-name {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            padding: 16px 0;
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            background: rgba(255,255,255,0.92);
-            border-bottom: 1px solid var(--border);
-        }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .nav-name { font-weight: 600; font-size: 15px; color: var(--text); letter-spacing: -0.2px; }
-        .nav-links { display: flex; gap: 24px; list-style: none; }
-        .nav-links a { color: var(--text-muted); font-size: 13px; font-weight: 500; }
-        .nav-links a:hover { color: var(--text); opacity: 1; }
+    section { padding: 88px 0; }
+    .alt { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-        section { padding: 100px 0; }
-        .section-alt { background: var(--bg-section); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .section-header { margin-bottom: 48px; }
-        .section-header h2 {
-            font-family: var(--serif); font-size: 32px; font-weight: 600;
-            letter-spacing: -0.3px; position: relative; display: inline-block;
-        }
-        .section-header h2::after {
-            content: '';
-            position: absolute; bottom: -8px; left: 0;
-            width: 40px; height: 3px; border-radius: 2px;
-            background: var(--accent);
-        }
-        .section-subhead {
-            margin-top: 16px;
-            max-width: 700px;
-            color: var(--text-secondary);
-            font-size: 16px;
-        }
+    .hero {
+      padding: 88px 0 72px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .hero-photo {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #dbe4f1;
+      box-shadow: 0 0 0 10px var(--accent-soft), var(--shadow);
+      background: #eef4ff;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      display: block;
+    }
+    .eyebrow {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6vw, 70px);
+      line-height: 1.04;
+      letter-spacing: -1.4px;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 24px;
+      line-height: 1.5;
+      max-width: 720px;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .hero-copy {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: #fff;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.18);
+    }
 
-        .hero {
-            min-height: 100vh;
-            display: flex; align-items: center;
-            padding: 120px 0 80px;
-            position: relative;
-        }
-        .hero-inner {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 64px;
-            align-items: center;
-            width: 100%;
-        }
-        .hero-photo {
-            width: 240px; height: 240px;
-            border-radius: 50%; overflow: hidden;
-            border: 3px solid #dce4ef;
-            box-shadow: 0 0 60px rgba(37,99,235,0.12);
-            position: relative;
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
-        }
-        .hero-photo img {
-            width: 100%; height: 100%; object-fit: cover; object-position: center 15%;
-            filter: grayscale(16%); transition: filter 0.4s;
-        }
-        .hero-photo:hover img { filter: grayscale(0%); }
-        .photo-fallback {
-            position: absolute; inset: 0;
-            display: none; align-items: center; justify-content: center;
-            font-family: var(--serif); font-size: 56px; font-weight: 600; color: var(--accent);
-        }
-        .hero-greeting {
-            font-size: 16px; color: var(--text-secondary); margin-bottom: 8px;
-            font-weight: 400;
-        }
-        h1 {
-            font-family: var(--serif); font-size: clamp(44px, 6vw, 72px);
-            line-height: 1.04; letter-spacing: -1.6px; font-weight: 600;
-            margin-bottom: 18px; color: var(--text);
-        }
-        .hero-roles {
-            display: flex; flex-wrap: wrap; gap: 10px;
-            margin-bottom: 20px;
-        }
-        .role-pill {
-            display: inline-flex; align-items: center; padding: 6px 14px;
-            border-radius: 999px; background: var(--accent-soft);
-            border: 1px solid var(--accent-mid); color: var(--accent);
-            font-size: 13px; font-weight: 600; letter-spacing: 0.1px;
-        }
-        .hero-tagline {
-            max-width: 700px;
-            font-size: 24px;
-            line-height: 1.5;
-            color: var(--text);
-            margin-bottom: 14px;
-            font-weight: 500;
-        }
-        .hero-support {
-            max-width: 720px;
-            font-size: 17px;
-            line-height: 1.75;
-            color: var(--text-secondary);
-            margin-bottom: 28px;
-        }
-        .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 14px 22px; border-radius: 12px; font-size: 15px;
-            font-weight: 600; border: 1px solid var(--border);
-            background: #ffffff; color: var(--text);
-            transition: all 0.25s ease;
-        }
-        .btn:hover { transform: translateY(-2px); border-color: var(--border-hover); opacity: 1; }
-        .btn-primary {
-            background: var(--accent); color: #ffffff; border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(37,99,235,0.18);
-        }
-        .btn-primary:hover { box-shadow: 0 14px 34px rgba(37,99,235,0.24); }
+    .proof-grid {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .proof {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .proof strong {
+      display: block;
+      color: var(--accent);
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -0.8px;
+    }
+    .proof span {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-        .proof-strip {
-            margin-top: 64px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-        .proof-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 22px;
-            box-shadow: 0 12px 28px rgba(20,34,51,0.04);
-        }
-        .proof-number {
-            font-size: 30px;
-            line-height: 1;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 8px;
-            letter-spacing: -0.8px;
-        }
-        .proof-label {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-        .scroll-hint {
-            position: absolute; left: 50%; bottom: 24px;
-            transform: translateX(-50%);
-            color: var(--text-muted); font-size: 13px;
-            letter-spacing: 0.4px; animation: bounce 2.2s infinite;
-        }
+    .section-head {
+      margin-bottom: 34px;
+    }
+    .section-head h2 {
+      font-family: var(--serif);
+      font-size: 34px;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .section-head p {
+      color: var(--muted);
+      max-width: 760px;
+    }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.45fr 0.85fr;
-            gap: 28px;
-        }
-        .about-text, .about-side, .mini-card, .project-card, .thinking-card, .community-card, .edu-card, .contact-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(20,34,51,0.04);
-        }
-        .about-text {
-            padding: 30px;
-        }
-        .about-text p {
-            margin-bottom: 16px;
-            color: var(--text-secondary);
-            font-size: 16px;
-        }
-        .about-text p:last-child { margin-bottom: 0; }
-        .about-side {
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            display: grid;
-            gap: 16px;
-        }
-        .mini-card {
-            padding: 22px;
-        }
-        .mini-card-title {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .mini-card p {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-        .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-        .small-pill {
-            display: inline-flex; align-items: center; padding: 6px 10px;
-            border-radius: 999px; background: var(--bg-section);
-            border: 1px solid var(--border); color: var(--text-secondary);
-            font-size: 12px; font-weight: 600;
-        }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+    .card p + p { margin-top: 14px; }
+    .mini-title {
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .side-stack {
+      display: grid;
+      gap: 16px;
+    }
 
-        .exp-item {
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 28px;
-            padding: 28px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .exp-item:first-of-type { padding-top: 8px; }
-        .exp-item:last-of-type { border-bottom: none; }
-        .exp-date {
-            font-family: var(--mono);
-            color: var(--text-muted);
-            font-size: 13px;
-            letter-spacing: 0.3px;
-            padding-top: 4px;
-        }
-        .exp-role {
-            font-size: 21px; font-weight: 600; letter-spacing: -0.3px;
-            color: var(--text); margin-bottom: 2px;
-        }
-        .exp-company {
-            font-size: 15px; color: var(--text-secondary); margin-bottom: 4px;
-        }
-        .exp-context {
-            font-size: 15px; color: var(--text-secondary);
-            margin-bottom: 14px; max-width: 760px;
-        }
-        .exp-bullets { margin-left: 18px; }
-        .exp-bullets li {
-            margin-bottom: 10px;
-            color: var(--text-secondary);
-            font-size: 15px;
-            padding-left: 6px;
-        }
-        .exp-bullets li:last-child { margin-bottom: 0; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: 0; }
+    .date {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      padding-top: 4px;
+    }
+    .role {
+      font-size: 21px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .company {
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    .bullets {
+      margin-left: 18px;
+      color: var(--muted);
+    }
+    .bullets li + li { margin-top: 8px; }
 
-        .edu-grid, .community-grid, .thinking-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-        .edu-card, .community-card, .thinking-card {
-            padding: 24px;
-        }
-        .card-label {
-            display: inline-flex; align-items: center;
-            margin-bottom: 12px;
-            padding: 5px 10px;
-            border-radius: 999px;
-            background: var(--accent-soft);
-            color: var(--accent);
-            font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .card-title {
-            font-size: 20px; font-weight: 600; letter-spacing: -0.3px;
-            margin-bottom: 8px;
-        }
-        .card-subtitle {
-            font-size: 14px; color: var(--text-secondary); margin-bottom: 12px;
-        }
-        .card-copy {
-            font-size: 15px; color: var(--text-secondary); line-height: 1.7;
-        }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 12px;
+    }
+    .project h3, .tile h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+    .project p, .tile p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .project ul {
+      margin: 14px 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .project ul li + li { margin-top: 8px; }
+    .project .footer {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-        .project-card {
-            padding: 24px;
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-hover);
-            box-shadow: 0 16px 34px rgba(20,34,51,0.07);
-            opacity: 1;
-        }
-        .project-top {
-            display: flex; justify-content: space-between; align-items: center;
-            gap: 10px; margin-bottom: 14px; flex-wrap: wrap;
-        }
-        .project-type {
-            display: inline-flex; align-items: center;
-            padding: 6px 10px; border-radius: 999px;
-            font-size: 12px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
-        }
-        .project-type-product { background: var(--green-soft); color: var(--green); }
-        .project-type-proto { background: var(--amber-soft); color: var(--amber); }
-        .project-type-concept { background: var(--cyan-soft); color: var(--cyan); }
-        .project-type-vc { background: var(--rose-soft); color: var(--rose); }
-        .project-title {
-            font-size: 22px; font-weight: 600; letter-spacing: -0.4px;
-            margin-bottom: 10px;
-        }
-        .project-hook {
-            font-size: 15px; color: var(--text);
-            line-height: 1.65; margin-bottom: 14px;
-        }
-        .project-points { margin-left: 18px; margin-bottom: 16px; }
-        .project-points li {
-            margin-bottom: 8px; color: var(--text-secondary); font-size: 14px;
-        }
-        .project-footer {
-            font-size: 13px; color: var(--text-muted); margin-top: auto;
-        }
-        .project-link {
-            display: inline-flex; align-items: center;
-            margin-top: 14px; font-weight: 600; font-size: 14px;
-        }
+    .skills {
+      display: grid;
+      gap: 14px;
+    }
+    .skills-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .skills-row strong {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      padding-top: 4px;
+    }
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill-pills span {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
 
-        .thinking-card h3 {
-            font-size: 18px; font-weight: 600; margin-bottom: 10px;
-        }
-        .thinking-card p {
-            font-size: 15px; color: var(--text-secondary); line-height: 1.7;
-        }
+    .contact {
+      text-align: center;
+    }
+    .contact h2 {
+      font-family: var(--serif);
+      font-size: 42px;
+      margin-bottom: 12px;
+      letter-spacing: -0.8px;
+    }
+    .contact p {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .contact-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .contact-card {
+      min-width: 220px;
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+    .contact-card small {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .contact-card span {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 15px;
+    }
 
-        .skills-groups {
-            display: grid;
-            gap: 16px;
-        }
-        .skill-group {
-            display: flex; gap: 16px; align-items: flex-start;
-            padding: 18px 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-        }
-        .skill-group-label {
-            min-width: 120px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.4px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            padding-top: 4px;
-        }
-        .skill-pills { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-pill {
-            display: inline-flex; align-items: center;
-            padding: 8px 12px; border-radius: 999px;
-            background: var(--bg-section); border: 1px solid var(--border);
-            color: var(--text-secondary); font-size: 13px; font-weight: 600;
-        }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
 
-        .contact-section {
-            text-align: center;
-        }
-        .contact-section h2 {
-            font-family: var(--serif);
-            font-size: 42px;
-            letter-spacing: -0.8px;
-            margin-bottom: 12px;
-        }
-        .contact-desc {
-            max-width: 640px;
-            margin: 0 auto 26px;
-            font-size: 17px;
-            color: var(--text-secondary);
-        }
-        .contact-grid {
-            display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-        }
-        .contact-card {
-            min-width: 220px;
-            padding: 18px 20px;
-            text-align: left;
-        }
-        .contact-card-label {
-            display: block;
-            font-size: 12px; text-transform: uppercase; letter-spacing: 0.7px;
-            color: var(--text-muted); margin-bottom: 8px; font-weight: 700;
-        }
-        .contact-card-value {
-            display: block;
-            font-size: 15px; color: var(--text); font-weight: 600;
-        }
-
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 22px 0 40px;
-            color: var(--text-muted);
-            font-size: 13px;
-            text-align: center;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
-        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 900px) {
-            .proof-strip { grid-template-columns: repeat(2, 1fr); }
-            .about-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            .hero { padding: 120px 0 60px; min-height: auto; }
-            .hero-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
-            .hero-photo { margin: 0 auto; width: 180px; height: 180px; }
-            .hero-roles, .hero-cta { justify-content: center; }
-            .hero-tagline, .hero-support { margin-left: auto; margin-right: auto; }
-            .proof-strip, .edu-grid, .thinking-grid, .community-grid { grid-template-columns: 1fr; }
-            .exp-item { grid-template-columns: 1fr; gap: 8px; }
-            .skill-group { flex-direction: column; gap: 10px; }
-            .skill-group-label { min-width: auto; }
-            .scroll-hint { display: none; }
-            .contact-grid { flex-direction: column; align-items: center; }
-        }
-        @media (max-width: 480px) {
-            .nav-links { display: none; }
-            .proof-strip { grid-template-columns: 1fr; }
-        }
-    </style>
+    @media (max-width: 900px) {
+      .proof-grid, .grid-2, .about-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+      .hero-photo { margin: 0 auto; width: 190px; height: 190px; }
+      .pill-row, .cta-row { justify-content: center; }
+      .proof-grid, .grid-2 { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .skills-row { grid-template-columns: 1fr; }
+      .contact-grid { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 560px) {
+      .nav-links { display: none; }
+      section { padding: 72px 0; }
+    }
+  </style>
 </head>
 <body>
-
-<nav>
-    <div class="container">
-        <a href="#hero" class="nav-name" style="text-decoration:none;color:var(--text);">Yaron Klein</a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Selected Work</a></li>
-            <li><a href="#thinking">Investment Thinking</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+  <nav>
+    <div class="container nav-inner">
+      <a class="nav-name" href="#top">Yaron Klein</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Selected Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-</nav>
+  </nav>
 
-<section class="hero" id="hero">
-    <div class="container">
-        <div class="hero-inner">
-            <div>
-                <div class="hero-photo">
-                    <img src="https://avatars.githubusercontent.com/u/125213738?v=4" alt="Yaron Klein" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                    <div class="photo-fallback">YK</div>
-                </div>
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-photo">
+            <img src="headshot.jpg" alt="Yaron Klein" />
+          </div>
+          <div>
+            <div class="eyebrow">Hello, I'm</div>
+            <h1>Yaron Klein</h1>
+            <div class="pill-row">
+              <span class="pill">Product Manager</span>
+              <span class="pill">Cornell MBA</span>
+              <span class="pill">Venture Investing</span>
             </div>
-            <div>
-                <div class="hero-greeting">Hello, I'm</div>
-                <h1>Yaron Klein</h1>
-                <div class="hero-roles">
-                    <span class="role-pill">Product Manager</span>
-                    <span class="role-pill">Cornell MBA</span>
-                    <span class="role-pill">Venture Investing</span>
-                </div>
-                <p class="hero-tagline">
-                    I build and scale products in AI and cybersecurity, with hands-on experience across product, strategy, and venture.
-                </p>
-                <p class="hero-support">
-                    My edge is translating messy customer problems into crisp product bets, then evaluating them with the judgment of an operator who has also spent time screening companies and markets.
-                </p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View Selected Work</a>
-                    <a href="Yaron_Klein_Resume.pdf" class="btn" target="_blank">Download Resume</a>
-                    <a href="#contact" class="btn">Get In Touch</a>
-                </div>
+            <p class="hero-sub">I build and scale products in AI and cybersecurity, with hands-on experience across product, strategy, and venture.</p>
+            <p class="hero-copy">My edge is translating messy customer problems into crisp product bets, then evaluating them with the judgment of an operator who has also spent time screening companies and markets.</p>
+            <div class="cta-row">
+              <a class="btn primary" href="#work">View Selected Work</a>
+              <a class="btn" href="Yaron_Klein_Resume.pdf" target="_blank">Download Resume</a>
+              <a class="btn" href="#contact">Get In Touch</a>
             </div>
+          </div>
         </div>
 
-        <div class="proof-strip reveal">
-            <div class="proof-card">
-                <div class="proof-number">$1M</div>
-                <div class="proof-label">ARR reached on an AI security product</div>
-            </div>
-            <div class="proof-card">
-                <div class="proof-number">10K+</div>
-                <div class="proof-label">paying subscribers reached within 12 months</div>
-            </div>
-            <div class="proof-card">
-                <div class="proof-number">3</div>
-                <div class="proof-label">companies approved by investment committee</div>
-            </div>
-            <div class="proof-card">
-                <div class="proof-number">100+</div>
-                <div class="proof-label">portfolio companies reviewed at OurCrowd</div>
-            </div>
+        <div class="proof-grid">
+          <div class="proof"><strong>$1M</strong><span>ARR reached on an AI security product</span></div>
+          <div class="proof"><strong>10K+</strong><span>paying subscribers reached within 12 months</span></div>
+          <div class="proof"><strong>3</strong><span>companies approved by investment committee</span></div>
+          <div class="proof"><strong>100+</strong><span>portfolio companies reviewed at OurCrowd</span></div>
         </div>
+      </div>
+    </section>
 
-        <div class="scroll-hint">Scroll</div>
-    </div>
-</section>
-
-<section id="about" class="section-alt">
-    <div class="container">
-        <div class="section-header reveal">
-            <h2>About</h2>
-            <p class="section-subhead">Operator first, with investing experience. Built to be useful in product, strategy, and early-stage environments.</p>
+    <section id="about" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>About</h2>
+          <p>Operator first, with investing experience. Built to be useful in product, strategy, and early-stage environments.</p>
         </div>
         <div class="about-grid">
-            <div class="about-text reveal">
-                <p>
-                    I started in strategy at KPMG, moved into venture at OurCrowd, and then joined IronVest to work closer to product creation. That path gave me two lenses I still use every day: how to evaluate an opportunity, and how hard it is to actually build one.
-                </p>
-                <p>
-                    At IronVest, I worked across product, growth, and operations on AI and cybersecurity products. I helped launch and scale an AI security product to <strong>$1M ARR and 10K+ paying users</strong>, ran discovery and experimentation, wrote product requirements, and partnered across engineering, GTM, and leadership.
-                </p>
-                <p>
-                    Today I am an MBA candidate at <strong>Cornell Johnson</strong>, active in <strong>Big Red Ventures</strong>, and building practical AI products and prototypes. I am most energized by roles that sit at the intersection of user insight, technical judgment, and strategic decision-making.
-                </p>
+          <div class="card">
+            <p>I started in strategy at KPMG, moved into venture at OurCrowd, and then joined IronVest to work closer to product creation. That path gave me two lenses I still use every day: how to evaluate an opportunity, and how hard it is to actually build one.</p>
+            <p>At IronVest, I worked across product, growth, and operations on AI and cybersecurity products. I helped launch and scale an AI security product to <strong>$1M ARR and 10K+ paying users</strong>, ran discovery and experimentation, wrote product requirements, and partnered across engineering, GTM, and leadership.</p>
+            <p>Today I am an MBA candidate at <strong>Cornell Johnson</strong>, active in <strong>Big Red Ventures</strong>, and building practical AI products and prototypes. I am most energized by roles that sit at the intersection of user insight, technical judgment, and strategic decision-making.</p>
+          </div>
+          <div class="side-stack">
+            <div class="card">
+              <div class="mini-title">Best fit roles</div>
+              <p>Product management, product strategy, venture platform, or investing roles where technical curiosity and commercial judgment both matter.</p>
             </div>
-            <div class="about-side reveal">
-                <div class="mini-card">
-                    <div class="mini-card-title">Best fit roles</div>
-                    <p>Product management, product strategy, venture platform, or investing roles where technical curiosity and commercial judgment both matter.</p>
-                </div>
-                <div class="mini-card">
-                    <div class="mini-card-title">Themes I track</div>
-                    <p>AI infrastructure, cybersecurity, digital trust, workflow automation, and products built for regulated or high-stakes environments.</p>
-                    <div class="pill-row">
-                        <span class="small-pill">AI</span>
-                        <span class="small-pill">Cybersecurity</span>
-                        <span class="small-pill">Digital Trust</span>
-                        <span class="small-pill">Regulated Tech</span>
-                    </div>
-                </div>
-                <div class="mini-card">
-                    <div class="mini-card-title">Based in</div>
-                    <p>Ithaca, New York. English and Hebrew.</p>
-                </div>
+            <div class="card">
+              <div class="mini-title">Themes I track</div>
+              <p>AI infrastructure, cybersecurity, digital trust, workflow automation, and products built for regulated or high-stakes environments.</p>
             </div>
+            <div class="card">
+              <div class="mini-title">Based in</div>
+              <p>Ithaca, New York. English and Hebrew.</p>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section id="experience">
-    <div class="container">
-        <div class="section-header reveal">
-            <h2>Experience</h2>
-            <p class="section-subhead">A mix of product ownership, operating execution, and venture pattern recognition.</p>
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>A mix of product ownership, operating execution, and venture pattern recognition.</p>
         </div>
 
-        <div class="exp-item reveal">
-            <div class="exp-date">2024 to 2025</div>
-            <div>
-                <div class="exp-role">Product Manager</div>
-                <div class="exp-company">IronVest</div>
-                <div class="exp-context">AI and cybersecurity startup focused on protecting users' digital lives.</div>
-                <ul class="exp-bullets">
-                    <li>Led discovery through user interviews, usage analytics, and behavioral signals to prioritize high-impact AI product bets.</li>
-                    <li>Helped launch and scale an AI security product that reached <strong>$1M ARR and 10K+ paying subscribers</strong>.</li>
-                    <li>Worked across product, GTM, and operations, translating ambiguous problems into roadmaps, requirements, and experiments.</li>
-                </ul>
-            </div>
+        <div class="exp-item">
+          <div class="date">2024 to 2025</div>
+          <div>
+            <div class="role">Product Manager</div>
+            <div class="company">IronVest</div>
+            <ul class="bullets">
+              <li>Led discovery through user interviews, usage analytics, and behavioral signals to prioritize high-impact AI product bets.</li>
+              <li>Helped launch and scale an AI security product that reached <strong>$1M ARR and 10K+ paying subscribers</strong>.</li>
+              <li>Worked across product, GTM, and operations, translating ambiguous problems into roadmaps, requirements, and experiments.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="exp-item reveal">
-            <div class="exp-date">2022 to 2024</div>
-            <div>
-                <div class="exp-role">Corporate Development and BizOps, CEO Office</div>
-                <div class="exp-company">IronVest</div>
-                <div class="exp-context">Strategic projects across fundraising, M&amp;A, partnerships, and operational execution.</div>
-                <ul class="exp-bullets">
-                    <li>Built strategic and financial cases for corporate carve-out and fundraising scenarios.</li>
-                    <li>Led post-acquisition integration work across infrastructure, data, and go-to-market.</li>
-                    <li>Supported partnerships and growth initiatives where business model, product design, and execution needed to align.</li>
-                </ul>
-            </div>
+        <div class="exp-item">
+          <div class="date">2022 to 2024</div>
+          <div>
+            <div class="role">Corporate Development and BizOps, CEO Office</div>
+            <div class="company">IronVest</div>
+            <ul class="bullets">
+              <li>Built strategic and financial cases for corporate carve-out and fundraising scenarios.</li>
+              <li>Led post-acquisition integration work across infrastructure, data, and go-to-market.</li>
+              <li>Supported partnerships and growth initiatives where business model, product design, and execution needed to align.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="exp-item reveal">
-            <div class="exp-date">2021 to 2022</div>
-            <div>
-                <div class="exp-role">Analyst, Portfolio Management</div>
-                <div class="exp-company">OurCrowd</div>
-                <div class="exp-context">Worked across market analysis, portfolio insights, and investment support for a large venture portfolio.</div>
-                <ul class="exp-bullets">
-                    <li>Reviewed 100+ portfolio companies and supported investment analysis across a broad set of technology businesses.</li>
-                    <li>Prepared investment materials and market views that helped guide funding and portfolio decisions.</li>
-                    <li>Built pattern recognition across early-stage companies, founder execution, and market timing.</li>
-                </ul>
-            </div>
+        <div class="exp-item">
+          <div class="date">2021 to 2022</div>
+          <div>
+            <div class="role">Analyst, Portfolio Management</div>
+            <div class="company">OurCrowd</div>
+            <ul class="bullets">
+              <li>Reviewed 100+ portfolio companies and supported investment analysis across a broad set of technology businesses.</li>
+              <li>Prepared investment materials and market views that helped guide funding and portfolio decisions.</li>
+              <li>Built pattern recognition across early-stage companies, founder execution, and market timing.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="exp-item reveal">
-            <div class="exp-date">2019 to 2021</div>
-            <div>
-                <div class="exp-role">Senior Consultant, Business Strategy</div>
-                <div class="exp-company">KPMG</div>
-                <div class="exp-context">Operational and strategic transformation work across large-scale, cross-functional environments.</div>
-                <ul class="exp-bullets">
-                    <li>Worked on high-stakes strategic initiatives, process redesign, and operating model improvements.</li>
-                    <li>Built structured recommendations for complex organizations where execution mattered as much as analysis.</li>
-                </ul>
-            </div>
+        <div class="exp-item">
+          <div class="date">2019 to 2021</div>
+          <div>
+            <div class="role">Senior Consultant, Business Strategy</div>
+            <div class="company">KPMG</div>
+            <ul class="bullets">
+              <li>Worked on high-stakes strategic initiatives, process redesign, and operating model improvements.</li>
+              <li>Built structured recommendations for complex organizations where execution mattered as much as analysis.</li>
+            </ul>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section id="education" class="section-alt">
-    <div class="container">
-        <div class="section-header reveal">
-            <h2>Education and Community</h2>
-            <p class="section-subhead">Formal training, student investing, and the communities that keep me grounded.</p>
+    <section id="work" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Selected Work</h2>
+          <p>A few examples that show how I think about products, markets, and execution.</p>
         </div>
-        <div class="edu-grid reveal">
-            <div class="edu-card">
-                <div class="card-label">Education</div>
-                <div class="card-title">Cornell Johnson</div>
-                <div class="card-subtitle">MBA candidate, Class of 2027</div>
-                <div class="card-copy">Focused on product, strategy, finance, and technology. Active in Big Red Ventures and the Cornell venture ecosystem.</div>
-            </div>
-            <div class="edu-card">
-                <div class="card-label">Education</div>
-                <div class="card-title">Ben Gurion University</div>
-                <div class="card-subtitle">BA in Management and Economics</div>
-                <div class="card-copy">Built my foundation in business analysis, leadership, and structured decision-making.</div>
-            </div>
-        </div>
-        <div class="community-grid reveal" style="margin-top:18px;">
-            <div class="community-card">
-                <div class="card-label">Community</div>
-                <div class="card-title">Heroes for Life</div>
-                <div class="card-subtitle">Co-founder</div>
-                <div class="card-copy">Helped build a nonprofit initiative focused on supporting underprivileged communities through education and volunteer coordination.</div>
-            </div>
-            <div class="community-card">
-                <div class="card-label">Community</div>
-                <div class="card-title">Leadership and Mentorship</div>
-                <div class="card-subtitle">Ongoing theme across school, service, and work</div>
-                <div class="card-copy">From youth movement leadership to startup execution, I tend to gravitate toward roles where people, pressure, and responsibility come together.</div>
-            </div>
-        </div>
-    </div>
-</section>
+        <div class="grid-2">
+          <div class="card project">
+            <div class="tag">Product Case</div>
+            <h3>AI Security Product at IronVest</h3>
+            <p>Worked on the launch and scale-up of an AI security product in a space where user trust, monetization, and product clarity all mattered.</p>
+            <ul>
+              <li><strong>Problem:</strong> users needed simpler, more proactive protection across their digital lives.</li>
+              <li><strong>Work:</strong> supported product discovery, prioritization, experimentation, and cross-functional execution.</li>
+              <li><strong>Outcome:</strong> the product reached <strong>$1M ARR</strong> and <strong>10K+ paying subscribers</strong>.</li>
+            </ul>
+            <div class="footer">IronVest | Product, GTM, and operating execution</div>
+          </div>
 
-<section id="projects">
-    <div class="container">
-        <div class="section-header reveal">
-            <h2>Selected Work</h2>
-            <p class="section-subhead">A few examples that show how I think about products, markets, and execution.</p>
+          <div class="card project">
+            <div class="tag">AI Prototype</div>
+            <h3>AI Feedback Aggregator</h3>
+            <p>Built a product feedback consolidation system to turn scattered customer input into structured product signals.</p>
+            <ul>
+              <li><strong>Build:</strong> used Cloudflare Workers, D1, and AI models to classify, cluster, and summarize feedback themes.</li>
+              <li><strong>Why it matters:</strong> reflects my interest in practical AI products that reduce real product management friction.</li>
+            </ul>
+            <div class="footer">Cornell | Cloudflare-based prototype</div>
+          </div>
+
+          <div class="card project">
+            <div class="tag">Product Thesis</div>
+            <h3>Ivy | AI Security Copilot</h3>
+            <p>A concept built around the next layer of digital trust as AI agents begin to browse, act, and transact on their behalf.</p>
+            <ul>
+              <li><strong>Thesis:</strong> the rise of agentic workflows creates a new trust and security layer that consumers will need help managing.</li>
+              <li><strong>Lens:</strong> combines consumer product thinking with cybersecurity risk management.</li>
+            </ul>
+            <div class="footer">Independent product thesis</div>
+          </div>
+
+          <div class="card project">
+            <div class="tag">Venture Work</div>
+            <h3>Big Red Ventures | Deal Sourcing and Screening</h3>
+            <p>Student fund work focused on finding and evaluating early-stage companies with real wedge and real urgency.</p>
+            <ul>
+              <li><strong>Focus areas:</strong> AI infrastructure, cybersecurity, and workflow software.</li>
+              <li><strong>Outcome:</strong> three companies were approved by the investment committee.</li>
+            </ul>
+            <div class="footer">Big Red Ventures | Cornell student-run fund</div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="projects-grid">
-            <div class="project-card reveal">
-                <div class="project-top">
-                    <span class="project-type project-type-product">Product Case</span>
-                </div>
-                <div class="project-title">AI Security Product at IronVest</div>
-                <div class="project-hook">Worked on the launch and scale-up of an AI security product in a space where user trust, monetization, and product clarity all mattered.</div>
-                <ul class="project-points">
-                    <li><strong>Problem:</strong> users needed simpler, more proactive protection across their digital lives.</li>
-                    <li><strong>Work:</strong> supported product discovery, prioritization, experimentation, and cross-functional execution.</li>
-                    <li><strong>Outcome:</strong> the product reached <strong>$1M ARR</strong> and <strong>10K+ paying subscribers</strong>.</li>
-                </ul>
-                <div class="project-footer">IronVest | Product, GTM, and operating execution</div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-top">
-                    <span class="project-type project-type-proto">AI Prototype</span>
-                </div>
-                <div class="project-title">AI Feedback Aggregator</div>
-                <div class="project-hook">Built a product feedback consolidation system to turn scattered customer input into structured product signals.</div>
-                <ul class="project-points">
-                    <li><strong>Problem:</strong> teams collect feedback across channels, but struggle to turn it into prioritized product insight.</li>
-                    <li><strong>Build:</strong> used Cloudflare Workers, D1, and AI models to classify, cluster, and summarize feedback themes.</li>
-                    <li><strong>Why it matters:</strong> reflects my interest in practical AI products that reduce real product management friction.</li>
-                </ul>
-                <div class="project-footer">Cornell | Cloudflare-based prototype</div>
-                <a href="https://github.com/KleinYaron/ai-feedback-aggregator" target="_blank" class="project-link">View on GitHub</a>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-top">
-                    <span class="project-type project-type-concept">Product Thesis</span>
-                </div>
-                <div class="project-title">Ivy | AI Security Copilot</div>
-                <div class="project-hook">A concept built around the next layer of digital trust as AI agents begin to browse, act, and transact on their behalf.</div>
-                <ul class="project-points">
-                    <li><strong>Thesis:</strong> the rise of agentic workflows creates a new trust and security layer that consumers will need help managing.</li>
-                    <li><strong>Insight source:</strong> grounded in operational and product experience from IronVest's work on digital identity and transaction protection.</li>
-                    <li><strong>Lens:</strong> combines consumer product thinking with cybersecurity risk management.</li>
-                </ul>
-                <div class="project-footer">Independent product thesis</div>
-                <a href="https://getivy.ai" target="_blank" class="project-link">Visit getivy.ai</a>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-top">
-                    <span class="project-type project-type-vc">Venture Work</span>
-                </div>
-                <div class="project-title">Big Red Ventures | Deal Sourcing and Screening</div>
-                <div class="project-hook">Student fund work focused on finding and evaluating early-stage companies with real wedge and real urgency.</div>
-                <ul class="project-points">
-                    <li><strong>Focus areas:</strong> AI infrastructure, cybersecurity, and workflow software.</li>
-                    <li><strong>Work:</strong> sourced companies, reviewed market dynamics, and prepared investment views for screening discussions.</li>
-                    <li><strong>Outcome:</strong> three companies were approved by the investment committee.</li>
-                </ul>
-                <div class="project-footer">Big Red Ventures | Cornell student-run fund</div>
-            </div>
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p>The mix I bring is practical: product craft, analytics, technical fluency, and commercial reasoning.</p>
         </div>
-    </div>
-</section>
+        <div class="skills">
+          <div class="skills-row">
+            <strong>Product</strong>
+            <div class="skill-pills">
+              <span>Product Discovery</span><span>PRD Writing</span><span>Roadmapping</span><span>OKRs</span><span>User Research</span><span>Experimentation</span><span>Stakeholder Management</span>
+            </div>
+          </div>
+          <div class="skills-row">
+            <strong>Analytics</strong>
+            <div class="skill-pills">
+              <span>SQL</span><span>Scenario Modeling</span><span>Commercial Analysis</span><span>Market Research</span><span>Business Cases</span>
+            </div>
+          </div>
+          <div class="skills-row">
+            <strong>Technical</strong>
+            <div class="skill-pills">
+              <span>AI Product Workflows</span><span>Cloudflare Workers</span><span>D1</span><span>Python</span><span>APIs</span><span>Data Platforms</span>
+            </div>
+          </div>
+          <div class="skills-row">
+            <strong>Operating style</strong>
+            <div class="skill-pills">
+              <span>Structured Thinking</span><span>Cross-functional Leadership</span><span>Founder Empathy</span><span>Clear Writing</span><span>Execution Under Ambiguity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="thinking" class="section-alt">
-    <div class="container">
-        <div class="section-header reveal">
-            <h2>Investment Thinking</h2>
-            <p class="section-subhead">Included to make my venture interest concrete, not just implied.</p>
-        </div>
-        <div class="thinking-grid reveal">
-            <div class="thinking-card">
-                <h3>What I look for</h3>
-                <p>
-                    I am most drawn to products solving painful, repeated workflows where urgency is obvious, value can be measured quickly, and the wedge can deepen over time through data, trust, or workflow lock-in.
-                </p>
-            </div>
-            <div class="thinking-card">
-                <h3>Sectors I track</h3>
-                <p>
-                    AI infrastructure, cybersecurity, digital identity, and software for regulated or high-stakes environments. I like markets where technical capability matters, but distribution, trust, and product discipline matter just as much.
-                </p>
-            </div>
-            <div class="thinking-card">
-                <h3>How operating experience shapes my lens</h3>
-                <p>
-                    Working inside a startup changed how I evaluate products. I pay attention to implementation friction, user behavior, GTM realism, and how teams prioritize under constraints, not just how strong the deck looks.
-                </p>
-            </div>
-            <div class="thinking-card">
-                <h3>How I can help</h3>
-                <p>
-                    I can be useful where product judgment, structured analysis, and founder empathy overlap: market mapping, customer pain framing, product diligence, roadmap thinking, or special projects close to the leadership team.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="skills">
-    <div class="container">
-        <div class="section-header reveal">
-            <h2>Skills</h2>
-            <p class="section-subhead">The mix I bring is practical: product craft, analytics, technical fluency, and commercial reasoning.</p>
-        </div>
-        <div class="skills-groups reveal">
-            <div class="skill-group">
-                <div class="skill-group-label">Product</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">Product Discovery</span>
-                    <span class="skill-pill">PRD Writing</span>
-                    <span class="skill-pill">Roadmapping</span>
-                    <span class="skill-pill">OKRs</span>
-                    <span class="skill-pill">User Research</span>
-                    <span class="skill-pill">Experimentation</span>
-                    <span class="skill-pill">Stakeholder Management</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-group-label">Analytics</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">SQL</span>
-                    <span class="skill-pill">Scenario Modeling</span>
-                    <span class="skill-pill">Commercial Analysis</span>
-                    <span class="skill-pill">Market Research</span>
-                    <span class="skill-pill">Business Cases</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-group-label">Technical</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">AI Product Workflows</span>
-                    <span class="skill-pill">Cloudflare Workers</span>
-                    <span class="skill-pill">D1</span>
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">APIs</span>
-                    <span class="skill-pill">Data Platforms</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-group-label">Operating style</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">Structured Thinking</span>
-                    <span class="skill-pill">Cross-functional Leadership</span>
-                    <span class="skill-pill">Founder Empathy</span>
-                    <span class="skill-pill">Clear Writing</span>
-                    <span class="skill-pill">Execution Under Ambiguity</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="contact-section section-alt">
-    <div class="container reveal">
+    <section id="contact" class="alt contact">
+      <div class="container">
         <h2>Let's talk.</h2>
-        <p class="contact-desc">Whether it is a product role, venture role, platform team, or strategic operating project, I am always open to good conversations.</p>
+        <p>Whether it is a product role, venture role, platform team, or strategic operating project, I am always open to good conversations.</p>
         <div class="contact-grid">
-            <a href="mailto:yk846@cornell.edu" class="contact-card">
-                <span class="contact-card-label">Email</span>
-                <span class="contact-card-value">yk846@cornell.edu</span>
-            </a>
-            <a href="https://www.linkedin.com/in/yaron-klein-61b228138/" target="_blank" class="contact-card">
-                <span class="contact-card-label">LinkedIn</span>
-                <span class="contact-card-value">linkedin.com/in/yaron-klein-61b228138</span>
-            </a>
-            <a href="https://github.com/KleinYaron" target="_blank" class="contact-card">
-                <span class="contact-card-label">GitHub</span>
-                <span class="contact-card-value">github.com/KleinYaron</span>
-            </a>
+          <a class="contact-card" href="mailto:yk846@cornell.edu"><small>Email</small><span>yk846@cornell.edu</span></a>
+          <a class="contact-card" href="https://www.linkedin.com/in/yaron-klein-61b228138/" target="_blank"><small>LinkedIn</small><span>linkedin.com/in/yaron-klein-61b228138</span></a>
+          <a class="contact-card" href="https://github.com/KleinYaron" target="_blank"><small>GitHub</small><span>github.com/KleinYaron</span></a>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
+  </main>
 
-<footer>
+  <footer>
     <div class="container">© 2026 Yaron Klein</div>
-</footer>
-
-<script>
-const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-
+  </footer>
 </body>
 </html>
